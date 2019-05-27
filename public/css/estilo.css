@@ -1,0 +1,15 @@
+input[type="text"]{
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+
+}
+
+textarea{
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+}
+
+select#tipo, select#area_id{
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+}
