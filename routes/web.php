@@ -26,6 +26,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/logout', 'LoginController@destroy')->name('logout');
 
     Route::resource('/usuarios', 'Painel\UsuariosController');
+
+    Route::resource('/perfil', 'Painel\PerfilController');
      
  });
 
