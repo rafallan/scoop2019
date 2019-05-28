@@ -44,7 +44,7 @@
                     {!! Session::get('mensagem') !!}
                 </div>
                 @endif
-                <form method="post" action="{{ url('/logar') }}">
+                <form method="post" action="{{ url('/scoop2019/logar') }}">
                     @csrf
                     <div class="form-group">
                         <input class="form-control form-control-lg" name="usuario" id="usuario" type="text"

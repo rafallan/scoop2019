@@ -19,11 +19,13 @@ use Illuminate\Support\Facades\Route;
         return view('painel.dashboard');
     })->name('dashboard');
     
-    Route::resource('/scoop2019/areas-tematicas', 'Painel\AreasTematicasController');
+    Route::resource('/areas-tematicas', 'Painel\AreasTematicasController');
     
-    Route::resource('/scoop2019/submissoes', 'Painel\SubmissoesController');
+    Route::resource('/submissoes', 'Painel\SubmissoesController');
 
-    Route::get('/scoop2019/logout', 'LoginController@destroy')->name('logout');
+    Route::get('/logout', 'LoginController@destroy')->name('logout');
+
+    Route::resource('/usuarios', 'Painel\UsuariosController');
      
  });
 
