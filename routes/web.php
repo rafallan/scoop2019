@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\Route;
     Route::resource('/usuarios', 'Painel\UsuariosController');
 
     Route::resource('/perfil', 'Painel\PerfilController');
+
+    Route::resource('/alterar-senha', 'Painel\AlterarSenhaController');
      
  });
 
