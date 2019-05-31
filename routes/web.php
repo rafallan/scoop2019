@@ -33,6 +33,8 @@ use Illuminate\Support\Facades\Route;
      
  });
 
+Route::resource('/scoop2019/recuperar-senha', 'RecuperarSenhaController');
+
 Route::get('/scoop2019/login', 'LoginController@index')->name('login');
 
 Route::post('/scoop2019/logar', 'LoginController@store')->name('logar');

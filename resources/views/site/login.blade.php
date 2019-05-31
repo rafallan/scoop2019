@@ -37,8 +37,7 @@
         <div class="card ">
             <div class="card-header text-center"><a href="../index.html"><img class="logo-img"
                         src="{{ asset('assets/images/logo.png') }}" alt="logo"></a><span
-                    class="splash-description">Please enter
-                    your user information.</span></div>
+                    class="splash-description">Por favor, entre com suas credenciais.</span></div>
             <div class="card-body">
                 @if(Session::has('mensagem'))
                 <div class="col-sm-12 p-2">
@@ -63,14 +62,14 @@
                                 class="custom-control-label">Remember Me</span>
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">ENTRAR</button>
                 </form>
             </div>
             <div class="card-footer bg-white p-0  ">
                 <div class="card-footer-item card-footer-item-bordered">
                     <a href="#" class="footer-link">Create An Account</a></div>
                 <div class="card-footer-item card-footer-item-bordered">
-                    <a href="#" class="footer-link">Forgot Password</a>
+                    <a href="{{ route('recuperar-senha.index') }}" class="footer-link">Recuperar Senha</a>
                 </div>
             </div>
         </div>

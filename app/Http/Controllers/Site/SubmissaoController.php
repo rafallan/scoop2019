@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SubmissaoRequest;
 use App\Models\AreaTematica;
 use App\Models\Submissao;
+use Illuminate\Support\Facades\Mail;
 
 class SubmissaoController extends Controller
 {
@@ -18,8 +19,8 @@ class SubmissaoController extends Controller
     public function index()
     {
 
-        $dataInicio = '2019-06-01 08:00:00'; // 01 de julho de 2018 às 08:00:00
-        $dataFim    = '2019-08-31 23:59:00'; // 10 de julho de 2018 às 23:59:00
+        $dataInicio = '2019-05-27 08:00:00'; // 01 de julho de 2018 às 08:00:00
+        $dataFim    = '2019-07-12 23:59:00'; // 10 de julho de 2018 às 23:59:00
 
         if($dataInicio <= date("Y-m-d H:i:s") && $dataFim >= date("Y-m-d H:i:s")){
 
@@ -107,6 +108,22 @@ class SubmissaoController extends Controller
         if ($cadastrado)
         {
 
+
+            $data = [
+                'nome'      => $request->input('autor'),
+                'email'     => $request->input('email'),
+                'telefone'  => $request->input('telefone'),
+                'tipo'      => $request->input('tipo'),
+                'titulo'    => $request->input('titulo'),
+            ];
+
+            Mail::send('emails.submissao', $data, function ($mail) use ($request){
+                $mail->from($request->input('email'), $request->input('autor'))
+                    ->to("simposiocomputacao@gmail.com", 'Scoop 2019 - Submissão de Oficinas/Minicursos')
+                    ->cc($request->input('email'))
+                    ->replyTo($request->input('email'))
+                    ->subject("Scoop 2019 - Submissão de Oficinas/Minicursos");
+            });
             
             return redirect(route('submissao-oficinas-minicursos.index'))->with('mensagem', '<div class="alert alert-success alert-dismissable"><i class="fa fa-check"></i>
                     <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>Cadastro realizado com Sucesso!</div>');

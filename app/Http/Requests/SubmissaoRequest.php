@@ -38,8 +38,8 @@ class SubmissaoRequest extends FormRequest
                 'telefone'           => 'required|max:50',
                 'lattes'             => 'required|url|max:255',
                 'area_id'            => 'required',
-                'resumo'             => 'required|max:300',
-                'materiais'          => 'required|max:300',
+                'resumo'             => 'required',
+                'materiais'          => 'required',
                 'instituicao'        => 'required|max:255',
                 'disponibilidade'    => 'required|min:1|max:5',
             ];
@@ -53,8 +53,8 @@ class SubmissaoRequest extends FormRequest
                 'telefone'           => 'required|max:50',
                 'lattes'             => 'required|url|max:255',
                 'area_id'            => 'required',
-                'resumo'             => 'required|max:300',
-                'materiais'          => 'required|max:300',
+                'resumo'             => 'required',
+                'materiais'          => 'required',
                 'instituicao'        => 'required|max:255',
                 'dispo'             => 'required|min:1|max:5',
             ];
