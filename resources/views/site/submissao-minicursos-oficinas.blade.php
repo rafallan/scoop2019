@@ -5,12 +5,32 @@
 <div class="row">
 
     <div class="col-sm p-4">
-        <h2 class="text-center">SUBMISSÃO DE OFICINAS/MINICURSOS</h2>
+        <h2 class="text-center p-3">SUBMISSÃO DE OFICINAS/MINICURSOS</h2>
 
         <ol>
-            <li>Escolha o tipo de trabalho. Uma oficina terá duração de 4 horas e deverá ser ministrada em apenas um
-                turno. O minicurso deverá ter duração de 8 horas, podendo ser ministrado em dias alternados.</li>
-            <li>Escolha uma categoria para o seu trabalho</li>
+            <li>A Coordenação do SCOOP 2019 abre chamada para submissão de propostas de minicursos e oficinas. Serão
+                bem-vindas propostas em áreas recentes, ou ainda pouco exploradas e em temas com grande potencial para
+                atrair o interesse de estudantes e profissionais, de forma a melhor qualificá-los para suas pesquisas
+                e/ou mercado de trabalho.</li>
+            <li>Cada proposta submetida será avaliada por um comitê, os quais utilizarão os seguintes critérios para a
+                avaliação: relevância e atualidade do tema para o evento, qualidade técnica da proposta e experiência
+                dos proponentes no tema proposto.</li>
+            <li>No momento da submissão, o autor deverá indicar se a proposta foi planejada como um minicurso ou
+                oficina. A diferença entre ambos diz respeito, principalmente, à carga horária da atividade. A atividade
+                de Minicurso será desenvolvida com carga horária de 8hrs, podendo ser trabalhada num único dia em dois
+                turnos de 4hrs ou em dias distintos. Por outro lado, a atividade de oficina terá carga horária de 4hrs.
+            </li>
+            <li>O autor deverá informar ainda dados pessoais, link do currículo lattes, um resumo da proposta (até 300
+                palavras) para divulgação posterior no site do evento, e material e software a ser utilizado. Em relação
+                a este último ítem, a Coordenação do SCOOP informa que fornecerá apenas computadores e projetores
+                multimídia, além da instalação prévia dos softwares indicados pelo autores. </li>
+            <li>Por fim, as propostas aceitas serão executadas num dos laboratórios de informática das instituições
+                parceiras na organização do SCOOP 2019, a saber: CEULS/ULBRA, EETEPA, IESPES, IFPA, UFOPA e UNAMA. Desta
+                forma, será solicitado que o autor indique sugestão de dia e turno para realização da atividade, os
+                quais serão considerados para a composição da programação do evento.
+            </li>
+            <li>Os ministrantes das Oficnas e Minicursos ganharão certificação e inscrição no evento.</li>
+            <li class="text-danger">Período de submissão de propostas: 27 de maio a 12 de julho de 2019, através do preenchimento do formulário abaixo.</li>
         </ol>
 
     </div>
@@ -21,7 +41,7 @@
     </div>
     @endif
 
-    
+
     <div class="col-12">
         <form action="{{ route('submissao-oficinas-minicursos.store') }}" method="post" enctype="multipart/form-data">
 
