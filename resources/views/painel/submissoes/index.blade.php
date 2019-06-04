@@ -49,7 +49,7 @@
                             <th scope="col">Título</th>
                             <th scope="col">Autor (a)</th>
                             <th scope="col">Área Temática</th>
-                            <th scope="col" colspan="3" class="text-center">Ações</th>
+                            <th scope="col" colspan="4" class="text-center">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,6 +59,11 @@
                             <td>{{ $submissao->titulo }}</td>
                             <td>{{ $submissao->autor }}</td>
                             <td>{{ $submissao->area->nome }}</td>
+                            <td class="text-center">
+                                <a href="{{ route('submissoes.pdf', ['id' => $submissao->id]) }}" class="btn btn-success btn-xs">
+                                    <span class="fa fa-file-open">PDF</span>
+                                </a>
+                            </td>
                             <td class="text-center">
                                 <a href="{{ route('submissoes.show', ['id' => $submissao->id]) }}"
                                     class="btn btn-info btn-xs" title="Visualizar"><span

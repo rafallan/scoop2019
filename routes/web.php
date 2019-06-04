@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
  Route::group(['prefix' => '/scoop2019/painel', 'middleware' => 'auth'], function () {
 
+    Route::get('submissoes/pdf/{id}', 'Painel\SubmissoesController@pdf')->name('submissoes.pdf');
+
     Route::get('/dashboard', function(){
         return view('painel.dashboard');
     })->name('dashboard');
@@ -32,6 +34,7 @@ use Illuminate\Support\Facades\Route;
     Route::resource('/alterar-senha', 'Painel\AlterarSenhaController');
      
  });
+ 
 
 Route::resource('/scoop2019/recuperar-senha', 'RecuperarSenhaController');
 
