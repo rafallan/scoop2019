@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Submissao;
 use App\Models\AreaTematica;
 use App\Http\Requests\SubmissaoRequest;
+use PDF;
 
 class SubmissoesController extends Controller
 {
@@ -134,5 +135,18 @@ class SubmissoesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function pdf($id){
+        
+        $submissao = Submissao::findOrFail($id);
+
+        $pdf = PDF::loadView('painel.submissoes.pdf', ['submissao' => $submissao])->setPaper('a4', 'portrait')->setWarnings(false);
+
+        return $pdf->download('submissao.pdf');
+
+        return view('painel.submissoes.pdf',['submissao' => $submissao]);
+
+
     }
 }
