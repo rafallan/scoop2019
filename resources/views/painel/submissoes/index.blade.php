@@ -31,6 +31,25 @@
         {!! Session::get('mensagem') !!}
     </div>
     @endif
+
+    <div class="col-md-12 p-0" style="margin-bottom: 5px; border-radius: 5px;">
+
+        <form action="{{ route('submissoes.index') }}" method="get">
+
+            <div class="input-group input-group-sm">
+                <input type="text" name="q" class="form-control" placeholder="Procurar...">
+
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i>
+                    </button>
+                    <a href="{{ route('submissoes.index')}}" class="btn btn-warning">Listar
+                        Todas</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
     <div class="card">
         <h5 class="card-header">Submissões</h5>
         <div class="card-body">
@@ -43,7 +62,7 @@
             @endif
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Título</th>
@@ -59,11 +78,7 @@
                             <td>{{ $submissao->titulo }}</td>
                             <td>{{ $submissao->autor }}</td>
                             <td>{{ $submissao->area->nome }}</td>
-                            <td class="text-center">
-                                <a href="{{ route('submissoes.pdf', ['id' => $submissao->id]) }}" class="btn btn-success btn-xs">
-                                    <span class="fa fa-file-open">PDF</span>
-                                </a>
-                            </td>
+                            
                             <td class="text-center">
                                 <a href="{{ route('submissoes.show', ['id' => $submissao->id]) }}"
                                     class="btn btn-info btn-xs" title="Visualizar"><span

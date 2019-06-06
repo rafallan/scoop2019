@@ -16,10 +16,43 @@ class SubmissoesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         
-        $submissoes = Submissao::orderBy('titulo')->paginate();
+        $q = $request->q;
+
+        if (isset($q)) {
+            /*
+            $submissoes = Submissao::where('titulo', 'like', '%' . $q . '%')
+                ->orWhere('autor', 'like', '%' . $q . '%')
+                ->orderBy('tipo')
+                ->paginate(50);
+            */
+            $submissoes = Submissao::join('areas_tematicas', 'submissoes.area_id', 'areas_tematicas.id')
+                ->where('titulo', 'like', '%' . $q . '%')
+                ->orWhere('autor', 'like', '%' . $q . '%')
+                ->orWhere('area_id', 'like', '%' . $q . '%')
+                ->orderBy('titulo')
+                ->paginate(50);
+
+
+                $submissoes = Submissao::join('areas_tematicas', 'submissoes.area_id', '=', 'areas_tematicas.id')
+                ->where(function ($query) use ($request) {
+                    $query->where('submissoes.titulo', 'LIKE', '%' . $request->q . '%')
+                        ->orWhere('submissoes.autor', 'LIKE', '%' . $request->q . '%')
+                        ->orWhere('areas_tematicas.nome', 'LIKE', '%' . $request->q . '%');
+
+                })
+                ->orderBy('submissoes.titulo', 'ASC')
+                ->paginate(50);
+
+            
+
+        } else {
+            $submissoes = Submissao::join('areas_tematicas', 'submissoes.area_id', '=', 'areas_tematicas.id')
+                ->orderBy('submissoes.titulo', 'ASC')
+                ->paginate(50);
+        }
 
         return view('painel.submissoes.index', compact('submissoes'));
 
