@@ -1,5 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Models\AreaTematica;
+use App\Models\Submissao;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +21,18 @@ use Illuminate\Support\Facades\Route;
     Route::get('submissoes/pdf/{id}', 'Painel\SubmissoesController@pdf')->name('submissoes.pdf');
 
     Route::get('/dashboard', function(){
-        return view('painel.dashboard');
+
+        $areas = AreaTematica::all();
+        $submissoes = Submissao::all();
+        $usuarios = User::all();
+
+        $data = [
+            'areas' => $areas,
+            'submissoes' => $submissoes,
+            'usuarios' => $usuarios,
+        ];
+
+        return view('painel.dashboard')->with($data);
     })->name('dashboard');
     
     Route::resource('/areas-tematicas', 'Painel\AreasTematicasController');

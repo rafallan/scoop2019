@@ -5,7 +5,7 @@
 <div class="row">
 
     <div class="col-sm p-4">
-        <h2 class="text-center p-3">SUBMISSÃO DE OFICINAS/MINICURSOS</h2>
+        <h2 class="text-center p-3" style="font-size: 1.5em">SUBMISSÃO DE OFICINAS/MINICURSOS</h2>
 
         <ol>
             <li>A Coordenação do SCOOP 2019 abre chamada para submissão de propostas de minicursos e oficinas. Serão
@@ -178,7 +178,7 @@
 
             <div class="form-group">
                 <div class="text-center">
-                    <button type="submit" class="btn btn-success">FAZER SUBMISSÃO</button>
+                    <button type="submit" class="btn btn-success btn-lg">FAZER SUBMISSÃO</button>
                 </div>
 
 
