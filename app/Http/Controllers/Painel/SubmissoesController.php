@@ -22,35 +22,29 @@ class SubmissoesController extends Controller
         $q = $request->q;
 
         if (isset($q)) {
-            /*
-            $submissoes = Submissao::where('titulo', 'like', '%' . $q . '%')
-                ->orWhere('autor', 'like', '%' . $q . '%')
-                ->orderBy('tipo')
-                ->paginate(50);
-            */
-            $submissoes = Submissao::join('areas_tematicas', 'submissoes.area_id', 'areas_tematicas.id')
-                ->where('titulo', 'like', '%' . $q . '%')
-                ->orWhere('autor', 'like', '%' . $q . '%')
-                ->orWhere('area_id', 'like', '%' . $q . '%')
-                ->orderBy('titulo')
-                ->paginate(50);
-
-
-                $submissoes = Submissao::join('areas_tematicas', 'submissoes.area_id', '=', 'areas_tematicas.id')
-                ->where(function ($query) use ($request) {
-                    $query->where('submissoes.titulo', 'LIKE', '%' . $request->q . '%')
-                        ->orWhere('submissoes.autor', 'LIKE', '%' . $request->q . '%')
-                        ->orWhere('areas_tematicas.nome', 'LIKE', '%' . $request->q . '%');
-
-                })
-                ->orderBy('submissoes.titulo', 'ASC')
-                ->paginate(50);
-
-            
+           
+            $submissoes = Submissao::select(
+                'submissoes.id as id',
+                'submissoes.titulo as titulo',
+                'submissoes.autor as autor',
+                'areas_tematicas.nome as area'
+            )            
+            ->join('areas_tematicas', 'submissoes.area_id', 'areas_tematicas.id')
+                    ->where('submissoes.titulo', 'like', '%' . $q . '%')
+                    ->orWhere('submissoes.autor', 'like', '%' . $q . '%')
+                    ->orWhere('areas_tematicas.nome', 'like', '%' . $q . '%')
+                    ->orderBy('submissoes.titulo', 'asc')
+                    ->paginate(50);
 
         } else {
-            $submissoes = Submissao::join('areas_tematicas', 'submissoes.area_id', '=', 'areas_tematicas.id')
-                ->orderBy('submissoes.titulo', 'ASC')
+            $submissoes = Submissao::select(
+                'submissoes.id as id',
+                'submissoes.titulo as titulo',
+                'submissoes.autor as autor',
+                'areas_tematicas.nome as area'
+                )
+                ->join('areas_tematicas', 'submissoes.area_id', 'areas_tematicas.id')
+                ->orderBy('submissoes.titulo')
                 ->paginate(50);
         }
 

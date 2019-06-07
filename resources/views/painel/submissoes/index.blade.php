@@ -72,12 +72,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                      
                         @foreach($submissoes as $submissao)
                         <tr>
                             <td>{{ $submissao->id }}</td>
                             <td>{{ $submissao->titulo }}</td>
                             <td>{{ $submissao->autor }}</td>
-                            <td>{{ $submissao->area->nome }}</td>
+                            <td>{{ $submissao->area }}</td>
                             
                             <td class="text-center">
                                 <a href="{{ route('submissoes.show', ['id' => $submissao->id]) }}"
