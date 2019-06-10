@@ -8,6 +8,7 @@ use App\Http\Requests\SubmissaoRequest;
 use App\Models\AreaTematica;
 use App\Models\Submissao;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Configuracao;
 
 class SubmissaoController extends Controller
 {
@@ -19,8 +20,11 @@ class SubmissaoController extends Controller
     public function index()
     {
 
-        $dataInicio = '2019-05-27 08:00:00'; // 01 de julho de 2018 às 08:00:00
-        $dataFim    = '2019-07-12 23:59:00'; // 10 de julho de 2018 às 23:59:00
+        $configSubmissao = Configuracao::where('nome', 'submissoes')->first();
+
+        $dataInicio = $configSubmissao->data_inicio;
+        
+        $dataFim    = $configSubmissao->data_fim; 
 
         if($dataInicio <= date("Y-m-d H:i:s") && $dataFim >= date("Y-m-d H:i:s")){
 

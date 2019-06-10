@@ -243,6 +243,7 @@
         <script src="{{ asset('assets/libs/js/main-js.js') }}"></script>
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
         <script src="{{ asset('js/jquery.maskedinput.min.js') }}"></script>
+        <script src="{{ asset('js/painel.js') }}"></script>
 </body>
 
 </html>

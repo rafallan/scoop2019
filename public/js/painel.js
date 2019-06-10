@@ -11,6 +11,9 @@ jQuery(function($){
     $('#data').mask("99/99/9999");
     $('.data').mask("99/99/9999");
 
+    $("#data_inicio").mask("9999-99-99 99:99:99");
+    $("#data_fim").mask("9999-99-99 99:99:99");
+
     // Outra Universidade
     $(".universidade").on('change', function(event){
         event.preventDefault();

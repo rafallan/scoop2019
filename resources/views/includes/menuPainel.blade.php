@@ -25,7 +25,7 @@
                     </li>
                     @endif
 
-                    @if(Request::is('scoop2019/painel/areas-tematicas'))
+                    @if(Request::is('scoop2019/painel/areas-tematicas*'))
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ route('areas-tematicas.index') }}"><i
                                 class="fa fa-fw fa-rocket"></i>Áreas Temáticas</a>
@@ -37,7 +37,7 @@
                     </li>
                     @endif
 
-                    @if(Request::is('scoop2019/painel/submissoes'))
+                    @if(Request::is('scoop2019/painel/submissoes*'))
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ route('submissoes.index') }}"><i
                                 class="fas fa-fw fa-chart-pie"></i>Submissões</a>
@@ -52,13 +52,23 @@
                         <a class="nav-link" href=""><i class="fas fa-fw fa-users"></i>Voluntários</a>
                     </li>
 
-                    @if(Request::is('scoop2019/painel/usuarios'))
+                    @if(Request::is('scoop2019/painel/usuarios*'))
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ route('usuarios.index') }}"><i class="fa fa-fw fa-user"></i>Usuários</a>
                     </li>
                     @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('usuarios.index') }}"><i class="fa fa-fw fa-user"></i>Usuários</a>
+                    </li>
+                    @endif
+
+                    @if(Request::is('scoop2019/painel/configuracoes*'))
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('configuracoes.index') }}"><i class="fa fa-fw fa-user"></i>Configurações</a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('configuracoes.index') }}"><i class="fa fa-fw fa-user"></i>Configurações</a>
                     </li>
                     @endif
                 </ul>

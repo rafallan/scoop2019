@@ -46,6 +46,8 @@ use App\Models\User;
     Route::resource('/perfil', 'Painel\PerfilController');
 
     Route::resource('/alterar-senha', 'Painel\AlterarSenhaController');
+
+    Route::resource('/configuracoes', 'Painel\ConfiguracoesController');
      
  });
  
