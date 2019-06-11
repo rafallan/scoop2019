@@ -64,11 +64,11 @@
 
                     @if(Request::is('scoop2019/painel/configuracoes*'))
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('configuracoes.index') }}"><i class="fa fa-fw fa-user"></i>Configurações</a>
+                        <a class="nav-link active" href="{{ route('configuracoes.index') }}"><i class="fas fa-cog"></i>Configurações</a>
                     </li>
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('configuracoes.index') }}"><i class="fa fa-fw fa-user"></i>Configurações</a>
+                        <a class="nav-link" href="{{ route('configuracoes.index') }}"><i class="fas fa-cog"></i>Configurações</a>
                     </li>
                     @endif
                 </ul>
