@@ -61,7 +61,7 @@
             </nav>
             @endif
             <div class="table-responsive">
-                <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover table-bordered">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
